@@ -1,0 +1,316 @@
+﻿<style>
+    a {
+        text-decoration: none; 
+    }
+    body {
+        width:100%;
+        font-family: Arial, sans-serif;
+        
+        margin: 0;
+        padding: 0;
+
+    }
+    table {
+        border-collapse: collapse;
+        width: auto;
+        height: 100%;
+    }
+    .TableHead {
+        background-color: aqua;
+    }
+    header {
+        width:100%;
+        background-color:white;
+        color: black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        header .menu-items a,
+        header .cart a {
+            margin-left: 20px;
+            color: black;
+            text-decoration: none;
+        }
+
+        header .cart a {
+            font-size: 1.2rem;
+        }
+    nav {
+        background-color: white;
+        width: 100%;
+        height: 30px;
+        padding-left: 100px;
+
+    } 
+    #top_img {
+        width: 80px;
+        height: 80px;
+    }
+
+
+    .cart-section {
+        color: black;
+        background-color: whitesmoke;
+    }
+
+    .Tieu-de {
+        height: 30px;
+        width: 70%;
+        background-color: white;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    ul {
+        list-style-type: none; 
+        padding: 0; 
+        margin: 0; 
+    }
+
+        ul li {
+            display: inline; /* Hiển thị các mục trên cùng một dòng */
+            margin-right:190px; /* Khoảng cách*/
+        }
+    .shop {
+        height: 40px;
+        width: 70%;
+        background-color: white;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .cart-item {
+        width: 70%;
+        height: 20%;
+        display: flex;
+        align-items: center;
+        background-color: white;
+        border-bottom: 1px ;
+        color: black;
+        justify-content: space-between;
+    }
+
+        .cart-item .product-info {
+            display: flex;
+            align-items: center;
+            
+        }
+
+            .cart-item .product-info img {
+                width: 70px;
+                height: 70px;
+            }
+
+    .quantity {
+        display: flex;
+        align-items: center;
+    }
+
+        .quantity button {
+            padding: 10px;
+            background-color: #ccc;
+            border: none;
+            cursor: pointer;
+        }
+
+        .quantity input {
+            width: 40px;
+            text-align: center;
+            margin: 0 1px;
+        }
+    .ShopKM1 {
+        margin-top: 1px;
+        height: 40px;
+        width: 70%;
+        background-color: white;
+        margin-bottom: 20px;
+    }
+    .shop2 {
+        height: 40px;
+        width: 70%;
+        background-color: white;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .delete-item {
+        background-color: red;
+        color: white;
+        padding: 5px;
+        border: none;
+        cursor: pointer;
+    }
+    .ShopKM2 {
+        margin-top: 1px;
+        height: 40px;
+        width: 70%;
+        background-color: white;
+        margin-bottom: 20px;
+    }
+    .right_sidebar {
+        width: 20%;
+        height:25%;
+        background-color:white;
+        float: right;
+        margin-right: 100px;
+        
+    }
+    #top_imgzalo{
+        width:50px;
+        height:50px;
+    }
+    
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>
+        Tính Tiền
+    </title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script language="JavaScript">
+        function Calculate() {
+            var dg = 8480000;
+            var sl = parseFloat(document.getElementById("soluong").value);
+            if (sl < 1 || sl > 10);
+            else
+                window.document.getElementById("total").value = dg * sl;
+        }
+
+        function Calculate2() {
+            var dg2 = 8990000;
+            var sl2 = parseFloat(document.getElementById("soluong2").value);
+            if (sl2 < 1 || sl2 > 10);
+            else
+                window.document.getElementById("total2").value = dg2 * sl2;
+        }
+    </script>
+</head>
+<body>
+    <!-- Header với thanh tìm kiếm và các mục -->
+    <header>
+        <img id="top_img" src="~/Content/Images/mqdefault.jpg" />
+        <div class="search-bar">
+            <input type="text" name="msg" placeholder="Giao hàng nhanh 2H & Đúng khung giờ" size="100" style="height: 40px" />
+            <input type="button" name="Tìm Kiếm" value="Tìm Kiếm" style="height:40px" onclick="DislayMsg(msg.value);" />
+        </div>
+        <div class="menu-items">
+            <a href="#"><i class="fas fa-home"></i>Trang chủ</a>
+            <a href="#"><i class="fas fa-crown"></i> Astra</a>
+            <a href="#"><i class="far fa-smile"></i> Tài khoản</a>
+        </div>
+        <div class="cart">
+            <a href="#">
+                <i class="fas fa-shopping-cart"></i> Giỏ hàng (<span id="cart-count">2</span>)
+            </a>
+        </div>
+
+    </header>
+    <nav>
+        <div>
+            <a href="#">Khỏe đẹp</a> &nbsp
+            <a href="#">Nhà cửa</a> &nbsp
+            <a href="#">Sách</a> &nbsp
+            <a href="#"> Thể thao</a> &nbsp
+            <a href="#">Trái cây</a> &nbsp
+            <a href="#">Thịt,trứng</a> &nbsp
+            <a href="#">Rau củ quả</a> &nbsp
+            <a href="#">Sữa,bơ,phô mai</a> &nbsp
+            <a href="#">Hải sản </a> &nbsp
+            <a href="#"> Gạo,mì ăn liền</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <a href="#"> Giao đến: </a> <input type="text" name="msg" placeholder="Bạn muốn giao hàng tới đâu" size="50" style="height: 20px" />
+        </div>
+    </nav>
+
+    <!-- Phần thân giỏ hàng -->
+
+    <section class="cart-section">
+        <h1>GIỎ HÀNG</h1>
+        <div class="right_sidebar">
+            <div>
+                <p>
+                    &nbsp;&nbsp;Tiki Khuyến Mãi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Có thể chọn 2<i class="fas fa-info-circle"></i><br>
+                </p>
+                &nbsp;&nbsp;<img id="top_imgzalo" src="~/Content/Images/tong-quan-ve-zalo-pay-3.jpg"<p> Giảm 50k </p>
+            </div>
+        </div>
+        <div class="Tieu-de">
+            <div>
+                <ul>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="TatCa" value="tatca" /> Tất cả
+                    </li>
+                    <li>Đơn giá </li>
+                    <li>Số lượng </li>
+                    <li>Thành tiền</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Sản phẩm -->
+        <div class="shop">
+            <input type="checkbox" checked class="product-checkbox" name="Giadungviet" value="giadungviet" /> <a href="#"><i class="fas fa-store"></i> GIA DỤNG VIỆT <i class="fas fa-chevron-right"></i> </a>
+        </div>
+        <div class="cart-item">
+            <input type="checkbox" checked class="product-checkbox" data-quantity="1" />
+            <div class="product-info">
+                <img src="~/Content/Images/10055111-dien-thoai-samsung-galaxy-a54-5g-8gb-128gb-tim-1.jpg" />
+                <p>
+                    Điện thoại Samsung Galaxy A54 5G (8GB/128GB) -<br> Hàng chính hãng - Tím
+                </p>
+            </div>
+            <span class="price">8.480.000đ</span>
+            <form method="post">
+
+                <input type="number" id="soluong" name="soluong" min="1" max="10"
+                       onchange="Calculate();" />
+                <input type="text" id="total" name="total" />
+
+            </form>
+            <button class="delete-item">Xóa</button> <br />
+        </div>
+        <div class="ShopKM1">
+            <p>&nbsp&nbspShop Khuyến Mãi <i class="fas fa-chevron-down"></i> </p>
+        </div>
+
+        <div class="shop2">
+            <input type="checkbox" class="product-checkbox" name="TikiTrading" value="tikitrading" /> <a href="#"><i class="fas fa-store"></i> Tiki Trading </a>
+        </div>
+        <div class="cart-item">
+            <input type="checkbox" class="product-checkbox" data-quantity="1" />
+            <div class="product-info">
+                <img src="~/Content/Images/vn-11134207-7r98o-lyw9mvobh8p9c8.jpg" />
+                <p>
+                    Điện thoại Samsung Galaxy A54 5G (8GB/256GB) -<br> Hàng chính hãng - Tím
+                </p>
+            </div>
+            <span class="price">8.990.000đ</span>
+            <form method="post">
+
+                <input type="number" id="soluong2" name="soluong2" min="1" max="10"
+                       onchange="Calculate2();" />
+                <input type="text" id="total2" name="total2" />
+
+            </form>
+            <button class="delete-item">Xóa</button> <br />
+        </div>
+        <div class="ShopKM2">
+            <p>&nbsp;&nbsp;Shop Khuyến Mãi <a href="#"> Vui lòng chọn sản phẩm trước  </a>  </p> 
+        </div>
+    </section>
+    
+
+
+    <script src="script.js"></script>
+    @RenderBody()
+</body>
+</html>
